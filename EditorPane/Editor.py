@@ -1,5 +1,6 @@
-from CustomText import CustomText
-from TextLineNumbers import TextLineNumbers
+#from CustomText import CustomText
+from EditorPane.CustomText import CustomText
+from EditorPane.TextLineNumbers import TextLineNumbers
 import tkinter as tk
 
 

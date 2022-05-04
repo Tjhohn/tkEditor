@@ -1,12 +1,10 @@
-import tkinter
-from doctest import Example
+import tkinter as tk
 from tkinter import ttk
 
-from Editor2 import Editor
+from EditorPane.Editor import Editor
 from MenuBar import MenuBar
 
-
-class HubWindow(tkinter.Tk):
+class HubWindow(tk.Tk):
 
     # Initializer
     def __init__(self):
@@ -27,7 +25,6 @@ class HubWindow(tkinter.Tk):
 
     def add_tab(self):
         self.tab_system.add( Editor(), text='First Tab')
-        #self.tab_system.add( Editor(self.tab_system), text='First Tab')
 
     def conf(self, event):
         self.tab_system.config(height=self.winfo_height(), width=self.winfo_width() - 145)
