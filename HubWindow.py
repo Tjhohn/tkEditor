@@ -1,9 +1,10 @@
 import tkinter as tk
 from tkinter import ttk
-
 from EditorPane.Editor import Editor
 from MenuBar import MenuBar
 
+
+# The main window, holds everything really
 class HubWindow(tk.Tk):
 
     # Initializer
@@ -28,3 +29,7 @@ class HubWindow(tk.Tk):
 
     def conf(self, event):
         self.tab_system.config(height=self.winfo_height(), width=self.winfo_width() - 145)
+
+    def get_current_editor(self):
+        return self.tab_system.nametowidget(self.tab_system.select())
+

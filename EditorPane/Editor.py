@@ -1,9 +1,8 @@
-#from CustomText import CustomText
 from EditorPane.CustomText import CustomText
 from EditorPane.TextLineNumbers import TextLineNumbers
 import tkinter as tk
 
-
+#basic editor, has ability to close self, and add text with line numbers
 class Editor(tk.Frame):
     def __init__(self, file_contents, *args, **kwargs):
         tk.Frame.__init__(self, *args, **kwargs)
@@ -37,3 +36,6 @@ class Editor(tk.Frame):
 
     def close_tab(self):
         self.destroy()
+
+    def get_text_contents(self):
+        return self.text.get('1.0', tk.END)
