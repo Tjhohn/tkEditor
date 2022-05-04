@@ -19,5 +19,7 @@ class MenuBar(Menu):
         tab_menu.add_command(label='Add Tab', command=self.add_new_tab)
         self.add_cascade(label="Tab", menu=tab_menu)
 
+        # file_menu = Menu(menu_bar, tearoff=0)
+
     def add_new_tab(self):
         self._master.add_tab()

@@ -1,6 +1,4 @@
-#from tkinter import Frame
 from tkinter import Text
-from tkinter.constants import BOTH
 from tkinter.ttk import Label, Frame, Button
 
 
@@ -18,18 +16,12 @@ class Editor(Frame):
 
     def create_page(self):
         label = Label(self, text="Welcome in TkEditor!")
-        label.grid(column=1,
-                   row=1,
-                   padx=40,
-                   pady=40)
+        label.pack() #grid(column=1,row=1)
 
         #button
         close_button = Button(self, text="close", command=self.close_tab)
-        close_button.grid(column=1, row=2)
+        close_button.pack() #.grid(column=0, row=2)
 
         # defining text editor
         text_editor = Text(self)
-        text_editor.grid(column=1,
-                   row=3,
-                   padx=40,
-                   pady=40)
+        text_editor.pack(expand=True, fill='both') #grid(column=1,row=3,padx=20,pady=20)
