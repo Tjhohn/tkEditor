@@ -18,13 +18,13 @@ class HubWindow(tk.Tk):
         self.tab_system = ttk.Notebook(self)
         self.tab_system.pack(expand=True, fill='both')
 
-        self.add_tab()# so it starts with an open tab?
+        self.add_tab(name="Welcome!", file_content="enter code here!")# so it starts with an open tab?
 
     def start_mainloop(self):
         self.mainloop()
 
-    def add_tab(self):
-        self.tab_system.add( Editor(), text='First Tab')
+    def add_tab(self, name="New Tab", file_content=""):
+        self.tab_system.add(Editor(file_content), text=name)
 
     def conf(self, event):
         self.tab_system.config(height=self.winfo_height(), width=self.winfo_width() - 145)

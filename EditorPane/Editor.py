@@ -5,7 +5,7 @@ import tkinter as tk
 
 
 class Editor(tk.Frame):
-    def __init__(self, *args, **kwargs):
+    def __init__(self, file_contents, *args, **kwargs):
         tk.Frame.__init__(self, *args, **kwargs)
         self.text = CustomText(self)
         self.vsb = tk.Scrollbar(self, orient="vertical", command=self.text.yview)
@@ -25,9 +25,12 @@ class Editor(tk.Frame):
         self.text.bind("<<Change>>", self._on_change)
         self.text.bind("<Configure>", self._on_change)
 
-        self.text.insert("end", "one\ntwo\nthree\n")
-        self.text.insert("end", "four\n",("bigfont",))
-        self.text.insert("end", "five\n")
+        if file_contents == "":
+            self.text.insert("end", "one\ntwo\nthree\n")
+            self.text.insert("end", "four\n", ("bigfont",))
+            self.text.insert("end", "five\n")
+        else:
+            self.text.insert("end", file_contents)
 
     def _on_change(self, event):
         self.linenumbers.redraw()
