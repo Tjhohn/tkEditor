@@ -28,12 +28,15 @@ class MenuBar(Menu):
 
     def add_file_cascade(self):
         file_menu = Menu(self, tearoff=0)
-        #file_menu.add_command(label='New File', command=self.add_new_tab)
+        file_menu.add_command(label='New File', command=self.add_new_tab)
         file_menu.add_command(label='Open', command=self._file_handler.open_file)
-        #file_menu.add_command(label='Save', command=self._master.get_current_editor)
+        file_menu.add_command(label='Save', command=self.save_file)
         file_menu.add_command(label='Save As', command=self.save_file_as)
         file_menu.add_command(label='Exit', command=sexit)
         self.add_cascade(label="File", menu=file_menu)
 
     def save_file_as(self):
         self._file_handler.save_as(self._master.get_current_editor())
+
+    def save_file(self):
+        self._file_handler.save(self._master.get_current_editor())

@@ -2,9 +2,10 @@ from EditorPane.CustomText import CustomText
 from EditorPane.TextLineNumbers import TextLineNumbers
 import tkinter as tk
 
+
 #basic editor, has ability to close self, and add text with line numbers
 class Editor(tk.Frame):
-    def __init__(self, file_contents, *args, **kwargs):
+    def __init__(self, file_contents="", file_path="", *args, **kwargs):
         tk.Frame.__init__(self, *args, **kwargs)
         self.text = CustomText(self)
         self.vsb = tk.Scrollbar(self, orient="vertical", command=self.text.yview)
@@ -12,6 +13,7 @@ class Editor(tk.Frame):
         self.text.tag_configure("bigfont", font=("Helvetica", "24", "bold"))
         self.linenumbers = TextLineNumbers(self, width=30)
         self.linenumbers.attach(self.text)
+        self._file_path = file_path
 
         # button
         close_button = tk.Button(self, text="close", command=self.close_tab)
@@ -39,3 +41,9 @@ class Editor(tk.Frame):
 
     def get_text_contents(self):
         return self.text.get('1.0', tk.END)
+
+    def get_file_path(self):
+        return self._file_path
+
+    def set_file_path(self, new_path):
+        self._file_path = new_path

@@ -24,8 +24,8 @@ class HubWindow(tk.Tk):
     def start_mainloop(self):
         self.mainloop()
 
-    def add_tab(self, name="New Tab", file_content=""):
-        self.tab_system.add(Editor(file_content), text=name)
+    def add_tab(self, name="New Tab", file_content="", file_path = ""):
+        self.tab_system.add(Editor(file_content, file_path), text=name)
 
     def conf(self, event):
         self.tab_system.config(height=self.winfo_height(), width=self.winfo_width() - 145)
