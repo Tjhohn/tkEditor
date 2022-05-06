@@ -17,7 +17,7 @@ class Editor(tk.Frame):
 
         # button
         close_button = tk.Button(self, text="close", command=self.close_tab)
-        close_button.pack(side=tk.LEFT)
+        close_button.pack(side=tk.TOP, anchor=tk.NE)
 
         self.vsb.pack(side="right", fill="y")
         self.linenumbers.pack(side="left", fill="y")
@@ -26,7 +26,7 @@ class Editor(tk.Frame):
         self.text.bind("<<Change>>", self._on_change)
         self.text.bind("<Configure>", self._on_change)
 
-        if file_contents == "":
+        if file_contents == "":  # for testing!
             self.text.insert("end", "one\ntwo\nthree\n")
             self.text.insert("end", "four\n", ("bigfont",))
             self.text.insert("end", "five\n")
