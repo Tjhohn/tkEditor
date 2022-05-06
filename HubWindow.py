@@ -12,19 +12,24 @@ class HubWindow(tk.Tk):
         super().__init__()
         self.title("TkEditor")
         self.geometry('800x600')
-        self.iconbitmap("TkEditor-logo0.1.ico")
+        try:
+            self.iconbitmap("TkEditor-logo0.1.ico")
+        except:
+            pass
+            # do nothing just default image then
+
         self.bind("<Configure>", self.conf)
 
         self._menu_bar = MenuBar(self)
         self.tab_system = ttk.Notebook(self)
         self.tab_system.pack(expand=True, fill='both')
 
-        self.add_tab(name="Welcome!", file_content="enter code here!")   # so it starts with an open tab?
+        self.add_tab(name="Welcome!", file_content="enter code here!")  # so it starts with an open tab?
 
     def start_mainloop(self):
         self.mainloop()
 
-    def add_tab(self, name="New Tab", file_content="", file_path = ""):
+    def add_tab(self, name="New Tab", file_content="", file_path=""):
         self.tab_system.add(Editor(file_content, file_path), text=name)
 
     def conf(self, event):
