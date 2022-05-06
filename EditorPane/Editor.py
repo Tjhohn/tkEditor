@@ -3,7 +3,7 @@ from EditorPane.TextLineNumbers import TextLineNumbers
 import tkinter as tk
 
 
-#basic editor, has ability to close self, and add text with line numbers
+#  basic editor, has ability to close self, and add text with line numbers
 class Editor(tk.Frame):
     def __init__(self, file_contents="", file_path="", *args, **kwargs):
         tk.Frame.__init__(self, *args, **kwargs)

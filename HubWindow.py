@@ -19,7 +19,7 @@ class HubWindow(tk.Tk):
         self.tab_system = ttk.Notebook(self)
         self.tab_system.pack(expand=True, fill='both')
 
-        self.add_tab(name="Welcome!", file_content="enter code here!")# so it starts with an open tab?
+        self.add_tab(name="Welcome!", file_content="enter code here!")   # so it starts with an open tab?
 
     def start_mainloop(self):
         self.mainloop()
@@ -33,3 +33,5 @@ class HubWindow(tk.Tk):
     def get_current_editor(self):
         return self.tab_system.nametowidget(self.tab_system.select())
 
+    def rename_current_editor(self, new_name):
+        self.tab_system.tab("current", text=[new_name])
