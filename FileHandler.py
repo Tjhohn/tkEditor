@@ -20,11 +20,12 @@ class FileHandler:
                 self._master.add_tab(name=ntpath.basename(file_path), file_content=code, file_path=file_path)
 
     def save_as(self, current_tab):  # also npw all files are .py
-        file_path = asksaveasfilename(filetypes=[('Python Files', '*.py')])
+        file_path = asksaveasfilename(filetypes=[('Python Files', '*.py')]) + '.py'
 
         if file_path != '':
             self._master.rename_current_editor(ntpath.basename(file_path))
-            with open(file_path + '.py', 'w') as file:
+            current_tab.set_file_path(file_path)
+            with open(file_path, 'w') as file:
                 code = current_tab.get_text_contents()
                 file.write(code)
 
@@ -35,6 +36,6 @@ class FileHandler:
             return
 
         if file_path != '':
-            with open(file_path + '.py', 'w') as file:
+            with open(file_path, 'w') as file:
                 code = current_tab.get_text_contents()
                 file.write(code)

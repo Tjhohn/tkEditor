@@ -9,12 +9,12 @@ It is made using Python an Tkinter in hopes that it can be easily cross-platform
 - Can create a file with editor
 - Can have multipe editor window tabs open
 - Editor has line numbers
+- Save all option for all open editors
 
 ### Planned Features
 - Directory tree viewer
 - Syntax highlighting
 - Hot-key shortcuts
-- Save all option for all open editors
 - Settings options for font-style, size, and colors
 - Save user settings in file
 - add way to  see where cursor is located in editor window

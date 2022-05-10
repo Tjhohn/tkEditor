@@ -40,3 +40,8 @@ class HubWindow(tk.Tk):
 
     def rename_current_editor(self, new_name):
         self.tab_system.tab("current", text=[new_name])
+
+    def get_all_open_editors(self):
+        tabs = [self.tab_system.nametowidget(i) for i in self.tab_system.tabs()]
+        print("tabs: ", tabs)
+        return tabs
