@@ -43,5 +43,4 @@ class HubWindow(tk.Tk):
 
     def get_all_open_editors(self):
         tabs = [self.tab_system.nametowidget(i) for i in self.tab_system.tabs()]
-        print("tabs: ", tabs)
         return tabs

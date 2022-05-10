@@ -39,7 +39,6 @@ class MenuBar(Menu):
 
     def save_file(self):
         self._file_handler.save(self._master.get_current_editor())
-        print("current : ", self._master.get_current_editor())
 
     def save_all(self):
         tabs = self._master.get_all_open_editors()
