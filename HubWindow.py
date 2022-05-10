@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from EditorPane.Editor import Editor
+from FileNaviator import FileNavigator
 from MenuBar import MenuBar
 
 
@@ -24,12 +25,16 @@ class HubWindow(tk.Tk):
         self.tab_system = ttk.Notebook(self)
         self.tab_system.pack(expand=True, fill='both')
 
-        self.add_tab(name="Welcome!", file_content="enter code here!")  # so it starts with an open tab?
+        self.add_editor_tab(name="Welcome!", file_content="enter code here!")  # so it starts with an open tab?
+        self.add_directory_tab()
 
     def start_mainloop(self):
         self.mainloop()
 
-    def add_tab(self, name="New Tab", file_content="", file_path=""):
+    def add_directory_tab(self):
+        self.tab_system.add( FileNavigator(self, "."), text='directory')
+
+    def add_editor_tab(self, name="New Tab", file_content="", file_path=""):
         self.tab_system.add(Editor(file_content, file_path), text=name)
 
     def conf(self, event):

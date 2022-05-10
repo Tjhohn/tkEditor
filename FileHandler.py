@@ -17,7 +17,7 @@ class FileHandler:
         if file_path != '':
             with open(file_path, 'r') as file:
                 code = file.read()
-                self._master.add_tab(name=ntpath.basename(file_path), file_content=code, file_path=file_path)
+                self._master.add_editor_tab(name=ntpath.basename(file_path), file_content=code, file_path=file_path)
 
     def save_as(self, current_tab):  # also npw all files are .py
         file_path = asksaveasfilename(filetypes=[('Python Files', '*.py')]) + '.py'

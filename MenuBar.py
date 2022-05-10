@@ -26,7 +26,7 @@ class MenuBar(Menu):
 
     def add_file_cascade(self):
         file_menu = Menu(self, tearoff=0)
-        file_menu.add_command(label='New File', command=self._master.add_tab)
+        file_menu.add_command(label='New File', command=self._master.add_editor_tab)
         file_menu.add_command(label='Open', command=self._file_handler.open_file)
         file_menu.add_command(label='Save', command=self.save_file)
         file_menu.add_command(label='Save All', command=self.save_all)
