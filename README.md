@@ -17,8 +17,9 @@ It is made using Python an Tkinter in hopes that it can be easily cross-platform
 - Hot-key shortcuts
 - Settings options for font-style, size, and colors
 - Save user settings in file
-- add way to  see where cursor is located in editor window
-
+- Add way to  see where cursor is located in editor window
+- Ability to set file-endings for c, cpp, etc.
+- Ability to run code (at least python)
 
 ### Possible Feature
 - Set up open with
