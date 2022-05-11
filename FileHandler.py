@@ -5,8 +5,24 @@ import ntpath #for getting file name easily
 
 
 class FileHandler:
+    """
+                -----DESCRIPTION-----
+        A class to handle file details for EditorPanes
+                -----USAGE-----
+        file_handler = FileHandler(pane)
+        file_handler.save(editorPane)
+                -----PARAMETERS-----
+        pane         = The Tk.Frame that holds the EditorPane text you want to save
+                -----CONTENTS-----
+        ---VARIABLES---
+        _pane                   = The frame holding the Editor
+        _allowed_file_types     = The allowed file types
+        ---FUNCTIONS---
+        open_file()    = opens the file in new Editor tab
+        save_as()      = save current Editor text to new file
+        save()         = saves current Editor to file, or makes file
+    """
 
-    # Initializer
     def __init__(self, pane):
         self._pane = pane
         self._allowed_file_types = [("All files", "*"), ("Python files", "*.py *.pyw", "TEXT"),
