@@ -7,8 +7,8 @@ import ntpath #for getting file name easily
 class FileHandler:
 
     # Initializer
-    def __init__(self, master):
-        self._master = master
+    def __init__(self, pane):
+        self._pane = pane
 
     # open a few tab and fills tab with contents of the file, may only allow .py files currently?
     def open_file(self):
@@ -17,13 +17,13 @@ class FileHandler:
         if file_path != '':
             with open(file_path, 'r') as file:
                 code = file.read()
-                self._master.add_editor_tab(name=ntpath.basename(file_path), file_content=code, file_path=file_path)
+                self._pane.add_editor_tab(name=ntpath.basename(file_path), file_content=code, file_path=file_path)
 
     def save_as(self, current_tab):  # also npw all files are .py
         file_path = asksaveasfilename(filetypes=[('Python Files', '*.py')]) + '.py'
 
         if file_path != '':
-            self._master.rename_current_editor(ntpath.basename(file_path))
+            self._pane.rename_current_editor(ntpath.basename(file_path))
             current_tab.set_file_path(file_path)
             with open(file_path, 'w') as file:
                 code = current_tab.get_text_contents()
