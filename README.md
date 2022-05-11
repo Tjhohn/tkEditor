@@ -17,7 +17,6 @@ It is made using Python an Tkinter in hopes that it can be easily cross-platform
 - Syntax highlighting
 - Hot-key shortcuts
 - Settings options for font-style, size, and colors
-- Save user settings in file
 - Add way to  see where cursor is located in editor window
 - Ability to run code (at least python)
 
@@ -26,6 +25,8 @@ It is made using Python an Tkinter in hopes that it can be easily cross-platform
 - Set up some form of themes or cutomization
 - Possibly create .sln/.idea like file for projects
 - Some form of auto-complete
+- Save user settings in file
+- Right-click menu?
 
 ***
 
