@@ -23,16 +23,23 @@ class HubWindow(tk.Tk):
 
         self._menu_bar = MenuBar(self)
         self.tab_system = ttk.Notebook(self)
-        self.tab_system.pack(expand=True, fill='both')
+        self.directory_viewer = FileNavigator(self, ".")
+        #  self.paned_window = ttk.PanedWindow(self, orient=tk.HORIZONTAL)
+
+        self.tab_system.pack(side=tk.RIGHT, expand=True, fill='both')
+        self.directory_viewer.pack(side=tk.LEFT, expand=True, fill='both')
 
         self.add_editor_tab(name="Welcome!", file_content="enter code here!")  # so it starts with an open tab?
-        self.add_directory_tab()
+
+        #  self.paned_window.add(self.directory_viewer)
+        #  self.paned_window.add(self.tab_system, weight=3)
+        #  self.paned_window.pack(expand=True, fill='both')
 
     def start_mainloop(self):
         self.mainloop()
 
     def add_directory_tab(self):
-        self.tab_system.add( FileNavigator(self, "."), text='directory')
+        self.tab_system.add(FileNavigator(self, "."), text='directory')
 
     def add_editor_tab(self, name="New Tab", file_content="", file_path=""):
         self.tab_system.add(Editor(file_content, file_path), text=name)

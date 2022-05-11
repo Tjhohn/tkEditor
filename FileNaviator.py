@@ -53,6 +53,7 @@ class FileNavigator(ttk.Frame):
 
     def _select(self, event=None):
         self.selected = self._tree.item(self._tree.focus())
+        print('selected: ', self.selected)
 
     def _open_event(self, event=None):
         self._select()
