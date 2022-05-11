@@ -3,7 +3,6 @@ from tkinter import ttk
 
 from EditorPane.Editor import Editor
 from FileNaviator import FileNavigator
-from MenuBar import MenuBar
 
 
 class PaneWindow(ttk.PanedWindow):
@@ -40,6 +39,8 @@ class PaneWindow(ttk.PanedWindow):
     def get_all_open_editors(self):
         return [self.tab_system.nametowidget(i) for i in self.tab_system.tabs()]
 
-    def set_directory_root(self, new_root='..//'):
-        self.directory_viewer.set_directory(new_root)
-        self.directory_viewer.refresh()
+    def set_directory_root(self):  # unsure of function, maybe want to pass new root in instead?
+        new_root = tk.filedialog.askdirectory()
+        if new_root != '':
+            self.directory_viewer.set_directory(new_root)
+            self.directory_viewer.refresh()

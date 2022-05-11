@@ -11,13 +11,13 @@ It is made using Python an Tkinter in hopes that it can be easily cross-platform
 - Editor has line numbers
 - Save all option for all open editors
 - Ability to set file-endings for c, cpp, etc.
-- Directory tree viewer (incomplete)
+- Directory tree viewer 
 
 ### Planned Features
 - Syntax highlighting
 - Hot-key shortcuts
 - Settings options for font-style, size, and colors
-- Add way to  see where cursor is located in editor window
+- Add way to see where cursor is located in editor window
 - Ability to run code (at least python)
 
 ### Possible Feature
