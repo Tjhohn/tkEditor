@@ -28,6 +28,7 @@ class FileNavigator(ttk.Frame):
     _select()      = Sets the selected item
     _open_event()  =
     _close_event() =
+    set_directory()= Sets the directory to a new one
     refresh()      = Refreshes the Treeview.
     """
 
