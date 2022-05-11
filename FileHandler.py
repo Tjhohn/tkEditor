@@ -9,10 +9,11 @@ class FileHandler:
     # Initializer
     def __init__(self, pane):
         self._pane = pane
-        self._allowed_file_types = [("Python files", "*.py *.pyw", "TEXT"), ("Text files", "*.txt", "TEXT"),
-                                    ("C files", "*.c *.cpp *.h *.hpp", "TEXT"), ("All files", "*"), ]
+        self._allowed_file_types = [("All files", "*"), ("Python files", "*.py *.pyw", "TEXT"),
+                                    ("Text files", "*.txt", "TEXT"),
+                                    ("C files", "*.c *.cpp *.h *.hpp", "TEXT"), ]
 
-    # open a few tab and fills tab with contents of the file, may only allow .py files currently?
+    # open a few tab and fills tab with contents of the file, should implement try catch in case of error
     def open_file(self):
         file_path = askopenfilename(filetypes=self._allowed_file_types)
 
@@ -21,7 +22,7 @@ class FileHandler:
                 code = file.read()
                 self._pane.add_editor_tab(name=ntpath.basename(file_path), file_content=code, file_path=file_path)
 
-    def save_as(self, current_tab):  # also npw all files are .py
+    def save_as(self, current_tab):
         file_path = asksaveasfilename(filetypes=self._allowed_file_types, defaultextension='*.*')
 
         if file_path != '':
