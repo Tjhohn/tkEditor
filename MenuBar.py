@@ -13,6 +13,7 @@ class MenuBar(Menu):
         self._file_handler = FileHandler(pane)
 
         self.add_file_cascade()
+        self.add_view_cascade()
         self.add_settings_cascade()
         self._master.config(menu=self)
 
@@ -24,6 +25,11 @@ class MenuBar(Menu):
         settings_menu = Menu(self, tearoff=0)
         #  add commands?
         self.add_cascade(label="Settings", menu=settings_menu)
+
+    def add_view_cascade(self):
+        view_menu = Menu(self, tearoff=0)
+        view_menu.add_command(label='Set Dir Root', command=self._pane.set_directory_root)
+        self.add_cascade(label="View", menu=view_menu)
 
     def add_file_cascade(self):
         file_menu = Menu(self, tearoff=0)

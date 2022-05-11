@@ -10,8 +10,7 @@ class PaneWindow(ttk.PanedWindow):
 
     # Initializer
     def __init__(self):
-        super().__init__( orient = tk.HORIZONTAL)
-
+        super().__init__(orient=tk.HORIZONTAL)
         self.bind("<Configure>", self.conf)
 
         self.tab_system = ttk.Notebook(self)
@@ -39,5 +38,8 @@ class PaneWindow(ttk.PanedWindow):
         self.tab_system.tab("current", text=[new_name])
 
     def get_all_open_editors(self):
-        tabs = [self.tab_system.nametowidget(i) for i in self.tab_system.tabs()]
-        return tabs
+        return [self.tab_system.nametowidget(i) for i in self.tab_system.tabs()]
+
+    def set_directory_root(self, new_root='..//'):
+        self.directory_viewer.set_directory(new_root)
+        self.directory_viewer.refresh()

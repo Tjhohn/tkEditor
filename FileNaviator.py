@@ -63,6 +63,9 @@ class FileNavigator(ttk.Frame):
         self._select()
         self.event_generate("<<{}Close>>".format(self._tree.item(self._tree.focus())["tags"][0]))
 
+    def set_directory(self, new_directory):
+        self._directory = new_directory
+
     def refresh(self):
         self._tree.delete(*self._tree.get_children())
 
