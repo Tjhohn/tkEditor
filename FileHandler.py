@@ -37,9 +37,11 @@ class FileHandler:
             with open(file_path, 'r') as file:
                 code = file.read()
                 self._pane.add_editor_tab(name=ntpath.basename(file_path), file_content=code, file_path=file_path)
+                self._pane.refresh_directory_viewer()
 
     def get_file_contents(self, file_path):
         with open(file_path, 'r') as file:
+            self._pane.refresh_directory_viewer()
             return file.read()
 
     def save_as(self, current_tab):
@@ -52,6 +54,8 @@ class FileHandler:
                 code = current_tab.get_text_contents()
                 file.write(code)
 
+            self._pane.refresh_directory_viewer()
+
     def save(self, current_tab):
         file_path = current_tab.get_file_path()
         if file_path == '':
@@ -62,3 +66,5 @@ class FileHandler:
             with open(file_path, 'w') as file:
                 code = current_tab.get_text_contents()
                 file.write(code)
+
+            self._pane.refresh_directory_viewer()

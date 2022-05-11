@@ -44,3 +44,6 @@ class PaneWindow(ttk.PanedWindow):
         if new_root != '':
             self.directory_viewer.set_directory(new_root)
             self.directory_viewer.refresh()
+
+    def refresh_directory_viewer(self):
+        self.directory_viewer.refresh()
