@@ -20,7 +20,7 @@ class FileHandler:
                 self._pane.add_editor_tab(name=ntpath.basename(file_path), file_content=code, file_path=file_path)
 
     def save_as(self, current_tab):  # also npw all files are .py
-        file_path = asksaveasfilename(filetypes=[('Python Files', '*.py')]) + '.py'
+        file_path = asksaveasfilename(filetypes=[('Python Files', '*.py')], defaultextension='*.*')
 
         if file_path != '':
             self._pane.rename_current_editor(ntpath.basename(file_path))
