@@ -38,6 +38,10 @@ class FileHandler:
                 code = file.read()
                 self._pane.add_editor_tab(name=ntpath.basename(file_path), file_content=code, file_path=file_path)
 
+    def get_file_contents(self, file_path):
+        with open(file_path, 'r') as file:
+            return file.read()
+
     def save_as(self, current_tab):
         file_path = asksaveasfilename(filetypes=self._allowed_file_types, defaultextension='*.*')
 
