@@ -17,9 +17,6 @@ class PaneWindow(ttk.PanedWindow):
         self.tab_system = ttk.Notebook(self)
         self.directory_viewer = FileNavigator(self, ".")
 
-        # self.tab_system.pack(side=tk.RIGHT, expand=True, fill='both')
-        # self.directory_viewer.pack(side=tk.LEFT, expand=True, fill='both')
-
         self.add(self.directory_viewer, weight=1)
         self.add(self.tab_system, weight=3)
         self.pack(expand=True, fill='both')

@@ -8,7 +8,6 @@ if __name__ == '__main__':
     print('Number of arguments:', len(sys.argv), 'arguments.')
     print('Argument List:', str(sys.argv))
     hub_window = HubWindow()
-    hub_window.start_mainloop()
 
 
 

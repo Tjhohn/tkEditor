@@ -8,7 +8,7 @@ class MenuBar(Menu):
     # Initializer
     def __init__(self, root, pane):
         super().__init__()
-        self._master = root
+        self._master = root  # The Tk instance
         self._pane = pane
         self._file_handler = FileHandler(pane)
 
