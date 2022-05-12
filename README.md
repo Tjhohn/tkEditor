@@ -37,7 +37,7 @@ Cloning the project should be all you need, as it currently uses only standard p
 
 ## Distribution/Executable
 dist folder holds an up to-date version of the project for windows, if on linux or OSX you will need to build for your self.
-You will need to install : pyinstaller usinf pip or similar, then run the command that is in main.
+You will need to install : pyinstaller using pip or similar, then run the command that is in main.
 
 ## Discussion on Syntax Highlighting
 The joys of engineering are trade-offs, and for the syntax highlighting there are plenty of trade-offs.
