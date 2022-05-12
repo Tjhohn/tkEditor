@@ -3,6 +3,7 @@
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 import ntpath #for getting file name easily
 import platform
+import os
 
 
 class FileHandler:
@@ -72,3 +73,15 @@ class FileHandler:
                 file.write(code)
 
             self._pane.refresh_directory_viewer()
+
+    def delete_tab(self, current_tab):
+        self.delete_file(current_tab.get_file_path())
+        current_tab.close_tab()
+
+    def delete_file(self, file_path):
+        if os.path.isfile(file_path):
+            os.remove(file_path)
+        elif os.path.isdir(file_path):
+            os.rmdir(file_path)
+
+        self._pane.refresh_directory_viewer()

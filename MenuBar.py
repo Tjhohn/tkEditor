@@ -38,6 +38,7 @@ class MenuBar(Menu):
         file_menu.add_command(label='Save', command=self.save_file)
         file_menu.add_command(label='Save All', command=self.save_all)
         file_menu.add_command(label='Save As', command=self.save_file_as)
+        file_menu.add_command(label='Delete', command=self.delete_item)
         file_menu.add_command(label='Exit', command=sexit)
         self.add_cascade(label="File", menu=file_menu)
 
@@ -51,3 +52,7 @@ class MenuBar(Menu):
         tabs = self._pane.get_all_open_editors()
         for tab in tabs:
             self._file_handler.save(tab)
+
+    def delete_item(self):
+        self._file_handler.delete_file(self._pane.get_current_editor().get_file_path())
+        self._pane.get_current_editor().close_tab()
