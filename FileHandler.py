@@ -2,6 +2,7 @@
 #  need to have a way to set file extension, as currently it is hard set to .py
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 import ntpath #for getting file name easily
+import platform
 
 
 class FileHandler:
@@ -45,7 +46,10 @@ class FileHandler:
             return file.read()
 
     def save_as(self, current_tab):
-        file_path = asksaveasfilename(filetypes=self._allowed_file_types, defaultextension='*.*')
+        if platform.system() != 'Darwin':
+            file_path = asksaveasfilename(filetypes=self._allowed_file_types, defaultextension='*.*')
+        else:
+            file_path = asksaveasfilename(defaultextension='*.*')
 
         if file_path != '':
             self._pane.rename_current_editor(ntpath.basename(file_path))
