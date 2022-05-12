@@ -29,6 +29,7 @@ It is made using Python an Tkinter in hopes that it can be easily cross-platform
 - Some form of auto-complete
 - Save user settings in file
 - Right-click menu (cut, paste, copy, delete, etc.)
+- Undo/Redo (unlikely, but never know)
 
 ***
 
